@@ -78,7 +78,7 @@ public class FindTripletsController {
     @RequestMapping(value = "/xml-tripplets", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<String> getXmlTriplets(@RequestParam("file-path") String filePath) {
-        log.debug("Inside getTriplets filePath: {}", filePath);
+        log.debug("Inside getXmlTriplets filePath: {}", filePath);
 
         File file = new File(filePath);
         List<List<Integer>> listTriplets;
@@ -106,7 +106,7 @@ public class FindTripletsController {
             }
             try {
                 String xml = xmlMapper.writeValueAsString(listTriplets);
-                log.debug("Generated json: {}", xml);
+                log.debug("Generated xml: {}", xml);
                 attempts.put(inputString, xml);
                 return ResponseEntity.ok(xml);
             } catch (JsonProcessingException exception) {
